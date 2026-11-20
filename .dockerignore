@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+src/generated
+.git
+.claude
+.serena
+docs
+.env
+.env.*
+!.env.example
+*.md
+Dockerfile
+docker-compose.yml
