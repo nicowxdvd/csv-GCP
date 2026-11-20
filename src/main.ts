@@ -12,6 +12,7 @@ async function bootstrap(): Promise<void> {
   const port = app.get(ConfigService<Env, true>).get('PORT', { infer: true });
   await app.listen(port);
   Logger.log(`API escuchando en http://localhost:${port}/api`, 'Bootstrap');
+
 }
 
 await bootstrap();
