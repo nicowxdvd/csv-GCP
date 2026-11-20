@@ -27,14 +27,18 @@ export class HttpExceptionFilter implements ExceptionFilter {
       const payload = exception.getResponse();
       if (typeof payload === 'string') {
         body.message = payload;
+
       } else {
         const { message, errors } = payload as { message?: unknown; errors?: unknown };
         body.message = Array.isArray(message) ? message.join(', ') : typeof message === 'string' ? message : exception.message;
+
         if (errors !== undefined)
           body.errors = errors;
+
       }
     } else {
       this.logger.error(exception instanceof Error ? exception.stack : String(exception));
+      
     }
 
     response.status(statusCode).json(body);

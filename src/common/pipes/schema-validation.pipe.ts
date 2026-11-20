@@ -2,8 +2,8 @@ import { BadRequestException, StandardSchemaValidationPipe } from '@nestjs/commo
 import type { StandardSchemaV1 } from '@standard-schema/spec';
 
 export interface ValidationIssue {
-  path: string;
-  message: string;
+  path    : string;
+  message : string;
 }
 
 function formatPath(path: StandardSchemaV1.Issue['path']): string {
