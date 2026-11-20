@@ -9,15 +9,7 @@ import { UsersModule } from './modules/users/users.module.js';
 import { PrismaModule } from './prisma/prisma.module.js';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      cache: true,
-      validate: validateEnv,
-    }),
-    PrismaModule,
-    UsersModule,
-  ],
+  imports: [ConfigModule.forRoot({ isGlobal: true, cache: true, validate: validateEnv }), PrismaModule, UsersModule],
   providers: [
     { provide: APP_PIPE, useFactory: createSchemaValidationPipe },
     // Los filtros globales se evalúan en orden inverso: el último registrado corre primero.
